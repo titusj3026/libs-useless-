@@ -64,5 +64,9 @@ local function Check()
     end
 end
  
-game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(Check)
+game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(function()
+	if _G.AutoFarmEnabled == true then
+		Check()		
+	end
+end)
  
